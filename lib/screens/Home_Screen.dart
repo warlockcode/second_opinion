@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:second_opinion/helper/homeScreenHelper.dart';
 
@@ -10,6 +14,23 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool _pinned = true;
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  User? currentUser = FirebaseAuth.instance.currentUser;
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  List<DocumentSnapshot> _services = [];
+  getServices() async {
+    Query q = _firestore.collection("services");
+    QuerySnapshot querySnapshot = await q.get();
+    setState(() {
+      _services = querySnapshot.docs;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getServices();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ListTile(
                                   title: Center(
                                       child: Text(
-                                    services[index],
+                                    _services[index]["service_name"],
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w900,
@@ -81,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   )),
                                   subtitle: Center(
                                       child: Text(
-                                    "Find Doctors",
+                                    _services[index]["subtitle"],
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w900,
@@ -90,7 +111,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   trailing: CircleAvatar(
                                     backgroundColor: Colors.white,
                                     maxRadius: 30,
-                                    child: differentIcons[index],
+                                    child: Icon(
+                                      IconData(
+                                          int.parse(_services[index]["icon"]),
+                                          fontFamily: 'MaterialIcons'),
+                                      color: Colors.red[900],
+                                      size: 40,
+                                    ),
                                   ),
                                   leading: CircleAvatar(
                                       maxRadius: 25,
@@ -99,9 +126,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: EdgeInsets.all(2),
                                         child: Container(
                                           decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                  image: NetworkImage(
-                                                      CustomIcons[index]))),
+                                            image: DecorationImage(
+                                              image: NetworkImage(
+                                                _services[index]["custom_icon"],
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       )),
                                 ),
@@ -111,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 },
-                childCount: services.length,
+                childCount: _services.length,
               ),
             ),
           ],

@@ -18,53 +18,14 @@ class BackGroundImage extends StatelessWidget {
   }
 }
 
-var services=["Medical Services","Car Services","Teaching Services","Petrol Services","Developer Services","Insurance Services","FinancialServices"];
-var CustomIcons=["https://image.flaticon.com/icons/png/512/1254/1254770.png","https://image.freepik.com/free-icon/car-repair-garage_318-9407.jpg","https://image.flaticon.com/icons/png/512/1250/1250487.png","https://image.flaticon.com/icons/png/512/99/99729.png","https://image.flaticon.com/icons/png/128/1238/1238369.png","https://image.flaticon.com/icons/png/512/1255/1255518.png","https://image.flaticon.com/icons/png/512/1255/1255221.png"];
-var differentIcons=[Icon(
-  Icons.local_hospital_sharp,
-  color: Colors.red[900],
-  size: 40,
-),
-  Icon(
-    Icons.car_rental,
-    color: Colors.red[900],
-    size: 40,
+var chipsCustom = [
+  Chip(
+    avatar: CircleAvatar(
+      backgroundColor: Colors.grey.shade800,
+      child: const Text('M'),
+    ),
+    label: const Text('Medical'),
   ),
-  Icon(
-    Icons.microwave,
-    color: Colors.red[900],
-    size: 40,
-  ),
-  Icon(
-    Icons.pets_rounded,
-    color: Colors.red[900],
-    size: 40,
-  ),
-  Icon(
-    Icons.developer_mode,
-    color: Colors.red[900],
-    size: 40,
-  ),
-  Icon(
-    Icons.airline_seat_individual_suite_rounded,
-    color: Colors.red[900],
-    size: 40,
-  ),
-  Icon(
-    Icons.monetization_on,
-    color: Colors.red[900],
-    size: 40,
-  )
-
-];
-
-var chipsCustom=[ Chip(
-  avatar: CircleAvatar(
-    backgroundColor: Colors.grey.shade800,
-    child: const Text('M'),
-  ),
-  label: const Text('Medical'),
-),
   SizedBox(
     width: 15,
   ),
@@ -124,4 +85,5 @@ var chipsCustom=[ Chip(
       child: const Text('AT'),
     ),
     label: const Text('Automation Developer'),
-  )];
+  )
+];
