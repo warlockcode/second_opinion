@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:second_opinion/helper/homeScreenHelper.dart';
+import 'package:second_opinion/screens/DetailScreen/Details.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -91,49 +92,54 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                ListTile(
-                                  title: Center(
-                                      child: Text(
-                                    _services[index]["service_name"],
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w900,
-                                        fontFamily: 'OpenSans-Regular'),
-                                  )),
-                                  subtitle: Center(
-                                      child: Text(
-                                    _services[index]["subtitle"],
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w900,
-                                        fontFamily: 'OpenSans-Regular'),
-                                  )),
-                                  trailing: CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    maxRadius: 30,
-                                    child: Icon(
-                                      IconData(
-                                          int.parse(_services[index]["icon"]),
-                                          fontFamily: 'MaterialIcons'),
-                                      color: Colors.red[900],
-                                      size: 40,
-                                    ),
-                                  ),
-                                  leading: CircleAvatar(
-                                      maxRadius: 25,
+                                GestureDetector(
+                                  onTap:(){
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailsScreen()));
+                                  },
+                                  child: ListTile(
+                                    title: Center(
+                                        child: Text(
+                                      _services[index]["service_name"],
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'OpenSans-Regular'),
+                                    )),
+                                    subtitle: Center(
+                                        child: Text(
+                                      _services[index]["subtitle"],
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'OpenSans-Regular'),
+                                    )),
+                                    trailing: CircleAvatar(
                                       backgroundColor: Colors.white,
-                                      child: Padding(
-                                        padding: EdgeInsets.all(2),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: NetworkImage(
-                                                _services[index]["custom_icon"],
+                                      maxRadius: 30,
+                                      child: Icon(
+                                        IconData(
+                                            int.parse(_services[index]["icon"]),
+                                            fontFamily: 'MaterialIcons'),
+                                        color: Colors.red[900],
+                                        size: 40,
+                                      ),
+                                    ),
+                                    leading: CircleAvatar(
+                                        maxRadius: 25,
+                                        backgroundColor: Colors.white,
+                                        child: Padding(
+                                          padding: EdgeInsets.all(2),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: NetworkImage(
+                                                  _services[index]["custom_icon"],
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      )),
+                                        )),
+                                  ),
                                 ),
                               ]),
                         ),
