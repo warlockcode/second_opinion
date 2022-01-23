@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:second_opinion/screens/DetailsCard/DetailsCard.dart';
 
 class DetailsScreen extends StatefulWidget {
   final String? serviceName;
@@ -128,7 +129,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                   BorderRadius.all(Radius.circular(20)),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsCard(),));
+                          },
                           child: Text(
                             "Select",
                             style: TextStyle(color: Colors.black, fontSize: 18),
