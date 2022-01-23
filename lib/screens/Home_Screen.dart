@@ -93,8 +93,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 GestureDetector(
-                                  onTap:(){
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailsScreen()));
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => DetailsScreen(
+                                                serviceName: _services[index]
+                                                    ["service_name"])));
                                   },
                                   child: ListTile(
                                     title: Center(
@@ -133,7 +137,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             decoration: BoxDecoration(
                                               image: DecorationImage(
                                                 image: NetworkImage(
-                                                  _services[index]["custom_icon"],
+                                                  _services[index]
+                                                      ["custom_icon"],
                                                 ),
                                               ),
                                             ),

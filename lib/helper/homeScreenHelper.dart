@@ -10,7 +10,7 @@ class BackGroundImage extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: NetworkImage(
-              'https://images.unsplash.com/photo-1642167714894-1c22e231c5de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80'),
+              'https://firebasestorage.googleapis.com/v0/b/second-opinion-44ba8.appspot.com/o/silverappbar.jpg?alt=media&token=3f03640d-9f5d-493d-ae08-8a2c93a0af31'),
           fit: BoxFit.fill,
         ),
       ),
