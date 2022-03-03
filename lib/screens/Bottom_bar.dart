@@ -22,17 +22,17 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   void initState() {
     _title = [
       'Home Screen',
-      'Feed Screen',
+
       'Search Screen',
-      'Cart Screen',
+
       'User Screen'
     ];
     _pages = [
       HomeScreen(),
-      FeedScreen(),
+
       SearchScreen(),
-      CartScreen(),
-      UserPage(),
+
+      UserScreen(),
     ];
     super.initState();
   }
@@ -52,35 +52,33 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       // ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
-        notchMargin: 2,
-        clipBehavior: Clip.antiAlias,
-        shape: CircularNotchedRectangle(),
+
         child: Container(
           height: kBottomNavigationBarHeight,
           decoration:
               BoxDecoration(border: Border(top: BorderSide(width: 0.5))),
           child: BottomNavigationBar(
             onTap: _selectedPage,
-            backgroundColor: Theme.of(context).primaryColor,
-            unselectedItemColor: Theme.of(context).unselectedWidgetColor,
-            selectedItemColor: Colors.purple,
+            elevation: 5,
+
+            backgroundColor: Colors.orangeAccent,
+
+            selectedItemColor: Colors.white,
             currentIndex: _selectedIndex,
+            selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+            unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
             items: [
               BottomNavigationBarItem(
                   icon: Icon(FontAwesome5.home),
                   tooltip: 'Home',
                   label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(FontAwesome5.rss), tooltip: 'Feed', label: 'Feed'),
+
               BottomNavigationBarItem(
                   activeIcon: null,
-                  icon: Icon(null),
+                  icon: Icon(FontAwesome5.search),
                   tooltip: 'Search',
                   label: 'Search'),
-              BottomNavigationBarItem(
-                  icon: Icon(FontAwesome5.shopping_cart),
-                  tooltip: 'Cart',
-                  label: 'Cart'),
+
               BottomNavigationBarItem(
                   icon: Icon(FontAwesome5.user),
                   tooltip: 'User',
@@ -89,22 +87,8 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           ),
         ),
       ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FloatingActionButton(
-          backgroundColor: Colors.purple,
-          tooltip: 'Search',
-          elevation: 5,
-          child: Icon(FontAwesome5.search),
-          onPressed: () {
-            setState(() {
-              _selectedIndex = 2;
-            });
-          },
-        ),
-      ),
+
+
     );
   }
 }
