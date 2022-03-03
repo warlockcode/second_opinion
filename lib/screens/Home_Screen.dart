@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:second_opinion/Auth/user_provider.dart';
 import 'package:second_opinion/helper/homeScreenHelper.dart';
 import 'package:second_opinion/screens/DetailScreen/Details.dart';
 
@@ -15,8 +17,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool _pinned = true;
-  FirebaseAuth _auth = FirebaseAuth.instance;
-  User? currentUser = FirebaseAuth.instance.currentUser;
+
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
   List<DocumentSnapshot> _services = [];
   getServices() async {
@@ -30,11 +31,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+
     getServices();
   }
 
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    String getName = (FirebaseAuth.instance.currentUser?.displayName != null)
+        ? (FirebaseAuth.instance.currentUser?.displayName).toString()
+        : " ";
+
+    var provider = Provider.of<UserProvider>(context);
+    var screenHeight = MediaQuery.of(context).size.height;
+    provider.kSetScreenHeight(screenHeight);
+
     return SafeArea(
       child: Scaffold(
         body: CustomScrollView(
@@ -46,11 +57,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               pinned: _pinned,
               expandedHeight: 160.0,
-              flexibleSpace: const FlexibleSpaceBar(
+              flexibleSpace: FlexibleSpaceBar(
                 title: Text(
-                  "Want Some Consusltancy",
+                  'welcome\n${getName}\nNeed Some Consultancy',
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 16,
                       fontWeight: FontWeight.w900,
                       fontFamily: 'OpenSans-Regular'),
                 ),
