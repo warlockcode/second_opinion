@@ -61,12 +61,12 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
             onTap: _selectedPage,
             elevation: 5,
 
-            backgroundColor: Colors.orangeAccent,
+            backgroundColor: Colors.white,
 
-            selectedItemColor: Colors.white,
+            selectedItemColor: Colors.purple,
             currentIndex: _selectedIndex,
             selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
-            unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+            unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold,color: Colors.purple),
             items: [
               BottomNavigationBarItem(
                   icon: Icon(FontAwesome5.home),
