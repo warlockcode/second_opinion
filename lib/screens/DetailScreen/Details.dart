@@ -14,7 +14,7 @@ class DetailsScreen extends StatefulWidget {
 
 class _DetailsScreenState extends State<DetailsScreen> {
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  var KTextStyle = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+  var KTextStyle = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
   String? serviceName;
   DocumentSnapshot? documentSnapshot;
   _DetailsScreenState({@required this.serviceName});
@@ -48,16 +48,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: Text("Details Screen"),
-        backgroundColor: Colors.orange,
+        title: Text("Choose Your Preference",style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),),
+        backgroundColor: Color(0xff7e47e2),
       ),
       body: ListView.builder(
         itemCount: _itemCount,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.only(left: 18.0,right: 18,top: 18),
             child: Card(
-              elevation: 5,
+              elevation: 2,
+              color: Color(0xffece4f9),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -69,7 +70,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       children: [
                         CircleAvatar(
                           maxRadius: 30,
-                          backgroundColor: Colors.green,
+                          backgroundColor: Color(0xffffe8ee),
                           child: Container(
                             decoration: BoxDecoration(
                               image: DecorationImage(
@@ -123,7 +124,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       children: [
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.greenAccent,
+                            primary: Color(0xffffe8ee),
                             shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),

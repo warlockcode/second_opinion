@@ -75,6 +75,7 @@ class _DetailsCardState extends State<DetailsCard> {
 
   var KcardTextStytle = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
 
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<UserProvider>(context, listen: true);
@@ -82,7 +83,9 @@ class _DetailsCardState extends State<DetailsCard> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("DetailsCard"),
+          elevation: 0,
+          backgroundColor: Color(0xff835fd9),
+          title: Text("Call Anyone",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
         ),
         body: ListView.builder(
           itemCount: 5,
@@ -93,98 +96,70 @@ class _DetailsCardState extends State<DetailsCard> {
                 elevation: 4,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          Container(
-                            height: 80,
-                            width: 80,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey,
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        "https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"))),
-                          ),
-                          Text(
-                            "*****",
-                            style: TextStyle(
-                                fontSize: 30,
-                                letterSpacing: 2,
-                                color: Colors.orange),
-                          ),
-                          Text("200000 votes")
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Ajay",
-                              style: KcardTextStytle,
-                            ),
-                            Text(
-                              "Doctor",
-                              style: KcardTextStytle,
-                            ),
-                            Text(
-                              "English,Hindi",
-                              style: KcardTextStytle,
-                            ),
-                            Text(
-                              "Exp 6 years",
-                              style: KcardTextStytle,
-                            ),
-                            Text(
-                              "Rs 24min",
-                              style: KcardTextStytle,
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(Icons.notifications_active_outlined),
-                                Icon(
-                                  Icons.check_circle,
-                                  color: Colors.greenAccent,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.greenAccent,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                ),
-                              ),
-                              onPressed: () {
-                                openCheckout();
-                              },
-                              child: Text(
-                                "Call",
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 18),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+                         children: [
+                           Column(children: [
+                             Text("Prof.Ive",style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),),
+                             Padding(
+                               padding: const EdgeInsets.only(right: 18.0),
+                               child: Text("Teacher",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
+                             ),
+
+                              SizedBox(height: 5,),
+                             
+                              Container(
+                                  width: MediaQuery.of(context).size.width/2.1,
+                                  child: Text("Most Indians usually put their money untouched in their bank accounts in hope that their savings remain safe. However, with lower interest rates, saving your . ",style: TextStyle(color: Colors.grey),))
+,
+                  SizedBox(height: 20,),
+
+                             Center(
+                               child: ElevatedButton(
+                                 style: ElevatedButton.styleFrom(
+                                   primary: Color(0xff7342d5),
+                                   shape: RoundedRectangleBorder(
+                                     borderRadius:
+                                     BorderRadius.all(Radius.circular(20)),
+                                   ),
+                                 ),
+                                 onPressed: () {
+                                   openCheckout();
+                                 },
+                                 child: Padding(
+                                   padding: const EdgeInsets.all(8.0),
+                                   child: Text(
+                                     "            Call            ",
+                                     style: TextStyle(
+                                         color: Colors.white, fontSize: 18),
+                                   ),
+                                 ),
+                               ),
+                             )
+
+                           ],),
+                           
+                           Column(children: [
+                             Container(
+                               height: 100,
+                               width: 100,
+                             decoration: BoxDecoration(
+                                 shape: BoxShape.circle,
+                                 color: Colors.grey,
+                                 image: DecorationImage(
+                                     image: NetworkImage(
+                                         "https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"))),
+                           ),
+
+                           ],)
+                         ],
+                       )
+                  ],
+                ),
                 ),
               ),
             );

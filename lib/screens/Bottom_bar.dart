@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
-import 'package:second_opinion/screens/Cart_screen.dart';
-import 'package:second_opinion/screens/Feed_screen.dart';
+
 import 'package:second_opinion/screens/Home_Screen.dart';
 import 'package:second_opinion/screens/Search.dart';
 import 'package:second_opinion/screens/User_screen.dart';
@@ -31,8 +30,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       HomeScreen(),
 
       SearchScreen(),
-
-      UserScreen(),
+      UserPage()
     ];
     super.initState();
   }
