@@ -62,7 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
             Padding(
               padding: const EdgeInsets.only(top:5.0,left: 28,right: 28,bottom: 15),
-              child: Text("Looking for a new service?",style: TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.bold),),
+              child: Text("Looking for a new service?",
+                style: TextStyle(fontSize: 26,fontWeight: FontWeight.bold,fontFamily: 'Roboto Slab',letterSpacing: 1),),
             ),
 
             Expanded(
@@ -105,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               style: TextStyle(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.w900,
-                                                  fontFamily: 'OpenSans-Regular'),
+                                                  fontFamily: 'BebasNeue'),
                                             )),
                                         subtitle: Center(
                                             child: Text(

@@ -36,9 +36,20 @@ dependencies:
   flutter_phone_direct_caller: ^2.1.0
   razorpay_flutter: ^1.2.9
   fluttertoast: ^8.0.8
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
   uses-material-design: true
+
+
+  fonts:
+    - family: Roboto Slab
+      fonts:
+        - asset: fonts/RobotoSlab-Regular.ttf
+
+    - family: Bebas Neue
+      fonts:
+        - asset: fonts/BebasNeue-Regular.ttf
