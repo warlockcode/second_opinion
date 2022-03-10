@@ -82,89 +82,226 @@ class _DetailsCardState extends State<DetailsCard> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Color(0xff835fd9),
-          title: Text("Call Anyone",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
-        ),
-        body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Card(
-                elevation: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                       Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // appBar: AppBar(
+        //   elevation: 0,
+        //   backgroundColor: Color(0xff835fd9),
+        //   title: Text("Call Anyone",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        // ),
+        body: Column(
+          children: [
 
-                         children: [
-                           Column(children: [
-                             Text("Prof.Ive",style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),),
-                             Padding(
-                               padding: const EdgeInsets.only(right: 18.0),
-                               child: Text("Teacher",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
-                             ),
+            Container(
 
-                              SizedBox(height: 5,),
-                             
-                              Container(
-                                  width: MediaQuery.of(context).size.width/2.1,
-                                  child: Text("Most Indians usually put their money untouched in their bank accounts in hope that their savings remain safe. However, with lower interest rates, saving your . ",style: TextStyle(color: Colors.grey),))
-,
-                  SizedBox(height: 20,),
-
-                             Center(
-                               child: ElevatedButton(
-                                 style: ElevatedButton.styleFrom(
-                                   primary: Color(0xff7342d5),
-                                   shape: RoundedRectangleBorder(
-                                     borderRadius:
-                                     BorderRadius.all(Radius.circular(20)),
-                                   ),
-                                 ),
-                                 onPressed: () {
-                                   openCheckout();
-                                 },
-                                 child: Padding(
-                                   padding: const EdgeInsets.all(8.0),
-                                   child: Text(
-                                     "            Call            ",
-                                     style: TextStyle(
-                                         color: Colors.white, fontSize: 18),
-                                   ),
-                                 ),
-                               ),
-                             )
-
-                           ],),
-                           
-                           Column(children: [
-                             Container(
-                               height: 100,
-                               width: 100,
-                             decoration: BoxDecoration(
-                                 shape: BoxShape.circle,
-                                 color: Colors.grey,
-                                 image: DecorationImage(
-                                     image: NetworkImage(
-                                         "https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"))),
-                           ),
-
-                           ],)
-                         ],
-                       )
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    Color(0xff5297f4),
+                    Colors.blue
                   ],
                 ),
+              ),
+              height: MediaQuery.of(context).size.height/2.5,
+              child: Padding(
+                padding: const EdgeInsets.only(top:48.0),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 28.0,right: 28),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(Icons.ac_unit,color: Colors.white,),
+                          SizedBox(width: 20,),
+                          Padding(
+                            padding: const EdgeInsets.only(top:8.0),
+                            child: Text("September 29, 2021",style: TextStyle(color: Colors.white),),
+                          ),
+                          SizedBox(width: 120,),
+                          CircleAvatar(
+                            maxRadius: 25,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: NetworkImage("https://images.unsplash.com/photo-1646561992933-296946012446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60")
+                                )
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 8,),
+                      Text("Halo, Marissa",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),),
+                      SizedBox(height: 8,),
+                      Text("What do you need ?",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20)),
+
+                      Padding(
+                        padding: const EdgeInsets.only(right:48.0,top: 28),
+                        child: Container(
+                          height: 45,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            color: Colors.white,
+                                
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 16.0),
+                            child: ListTile(
+                              leading: Icon(Icons.search),
+                              title:  TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Find a doctor or specialist',
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+
+                    ],
+                  ),
                 ),
               ),
-            );
-          },
-        ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 55.0,right: 55.0,top: 28),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  Text("My Appointment",style: TextStyle(color: Colors.grey,fontSize: 20),),
+                  Text("today",style: TextStyle(color: Colors.grey,fontSize: 20))
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 48.0,right: 48.0,top: 15),
+              child: Card(
+                elevation: 4,
+                shape:RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                color: Color(0xff5195f1),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CircleAvatar(
+                            maxRadius: 27,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage("https://images.unsplash.com/photo-1646561992933-296946012446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60")
+                                  )
+                              ),
+                            ),
+                          ),
+
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Dr.Sarah Hadid",style: TextStyle(color: Colors.white,fontSize: 18),),
+                              Text("Pyscologist",style: TextStyle(color: Colors.white,fontSize: 15),),
+                            ],
+                          ),
+
+                          GestureDetector(
+                            onTap: (){
+                              openCheckout();
+                            },
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: Icon(Icons.phone),
+                            ),
+                          )
+                        ],
+                      ),
+
+                      SizedBox(height: 25,),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Color(0xff76abf7),
+
+                        ),
+
+
+                        child: Row(
+                          children: [
+                            Icon(Icons.lock_clock,color: Colors.white,),
+                            Text("9am-10 am",style: TextStyle(color: Colors.white),),
+                            SizedBox(width: 25,),
+                            Icon(Icons.calendar_today_outlined,color: Colors.white,),
+                            Text("September 29,2021",style: TextStyle(color: Colors.white),)
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(height: 15,)
+
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+
+            Padding(
+              padding: const EdgeInsets.only(left: 48.0,top: 15),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("Nearby Doctor",style: TextStyle(color: Colors.grey,fontSize: 20),),
+                ],
+              ),
+            ),
+
+            Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 40.0,right: 48),
+                  child: ListView.builder(
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(top:18.0),
+                child: Card(
+                  elevation: 2,
+                  color: Color(0xffebf1ff),
+                    child: ListTile(
+                      leading:  CircleAvatar(
+                        maxRadius: 27,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage("https://images.unsplash.com/photo-1646561992933-296946012446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60")
+                              )
+                          ),
+                        ),
+                      ),
+
+                      title: Text("Dr Aman Singh",style: TextStyle(color: Colors.blue,fontSize: 20),),
+                      subtitle: Text("Dermatologist"),
+                    ),
+                ),
+              );
+            },),
+                ))
+
+          ],
+        )
       ),
     );
   }

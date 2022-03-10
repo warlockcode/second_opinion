@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             Padding(
               padding: const EdgeInsets.only(top:5.0,left: 28,right: 28,bottom: 15),
-              child: Text("Please Choose A category",style: TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.bold),),
+              child: Text("Looking for a new service?",style: TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.bold),),
             ),
 
             Expanded(
