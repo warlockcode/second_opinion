@@ -48,14 +48,18 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: Text("Choose Your Preference",style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),),
+        title: Text(
+          "Choose Your Preference",
+          style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Color(0xff7e47e2),
       ),
       body: ListView.builder(
         itemCount: _itemCount,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.only(left: 18.0,right: 18,top: 18),
+            padding: const EdgeInsets.only(
+                left: 18.0, right: 18, top: 18, bottom: 18),
             child: Card(
               elevation: 2,
               color: Color(0xffece4f9),
@@ -131,7 +135,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsCard(),));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DetailsCard(),
+                                ));
                           },
                           child: Text(
                             "Select",

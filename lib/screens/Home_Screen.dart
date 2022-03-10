@@ -37,42 +37,51 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xffffffff),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-
-            Padding(
-              padding: const EdgeInsets.all(28.0),
-              child: Card(
-                elevation: 5,
-                color: Colors.transparent,
-                child: Container(
-                    decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                      color: Color(0xff7e47e2),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("  2nd Opinon  ",style: TextStyle(color: Colors.white,fontSize: 26,fontWeight: FontWeight.bold),),
-                    )),
+          backgroundColor: Color(0xffffffff),
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Card(
+                  elevation: 5,
+                  color: Colors.transparent,
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Color(0xff7e47e2),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "  2nd Opinon  ",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                ),
               ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(top:5.0,left: 28,right: 28,bottom: 15),
-              child: Text("Please Choose A category",style: TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.bold),),
-            ),
-
-            Expanded(
-              child: Container(
-
-                child: ListView.builder(
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 5.0, left: 28, right: 28, bottom: 15),
+                child: Text(
+                  "Please Choose A category",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  child: ListView.builder(
                     itemCount: _services.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(5.0),
                         child: Card(
                           color: Color(0xffece4f9),
                           shape: RoundedRectangleBorder(
@@ -94,33 +103,36 @@ class _HomeScreenState extends State<HomeScreen> {
                                       onTap: () {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
-                                                builder: (context) => DetailsScreen(
-                                                    serviceName: _services[index]
-                                                    ["service_name"])));
+                                                builder: (context) =>
+                                                    DetailsScreen(
+                                                        serviceName: _services[
+                                                                index]
+                                                            ["service_name"])));
                                       },
                                       child: ListTile(
                                         title: Center(
                                             child: Text(
-                                              _services[index]["service_name"],
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w900,
-                                                  fontFamily: 'OpenSans-Regular'),
-                                            )),
+                                          _services[index]["service_name"],
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w900,
+                                              fontFamily: 'OpenSans-Regular'),
+                                        )),
                                         subtitle: Center(
                                             child: Text(
-                                              _services[index]["subtitle"],
-                                              style: TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w900,
-                                                  fontFamily: 'OpenSans-Regular'),
-                                            )),
+                                          _services[index]["subtitle"],
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w900,
+                                              fontFamily: 'OpenSans-Regular'),
+                                        )),
                                         trailing: CircleAvatar(
                                           backgroundColor: Colors.white,
                                           maxRadius: 30,
                                           child: Icon(
                                             IconData(
-                                                int.parse(_services[index]["icon"]),
+                                                int.parse(
+                                                    _services[index]["icon"]),
                                                 fontFamily: 'MaterialIcons'),
                                             color: Colors.red[900],
                                             size: 40,
@@ -136,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   image: DecorationImage(
                                                     image: NetworkImage(
                                                       _services[index]
-                                                      ["custom_icon"],
+                                                          ["custom_icon"],
                                                     ),
                                                   ),
                                                 ),
@@ -149,12 +161,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       );
-                    },),
-              ),
-            )
-          ],
-        )
-      ),
+                    },
+                  ),
+                ),
+              )
+            ],
+          )),
     );
   }
 }
