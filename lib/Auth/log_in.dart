@@ -11,8 +11,6 @@ import 'package:provider/provider.dart';
 import '../Reusable Components/reusableTextField.dart';
 
 class LogIn extends StatefulWidget {
-  const LogIn({Key? key}) : super(key: key);
-
   @override
   _LogInState createState() => _LogInState();
 }

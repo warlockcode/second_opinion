@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
+import 'package:provider/provider.dart';
 
 import 'package:second_opinion/screens/Home_Screen.dart';
 import 'package:second_opinion/screens/Search.dart';
 import 'package:second_opinion/screens/User_screen.dart';
+
+import '../Auth/log_in.dart';
+import '../Auth/user_provider.dart';
 
 class BottomBarScreen extends StatefulWidget {
   const BottomBarScreen({Key? key}) : super(key: key);
@@ -19,18 +23,11 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   void initState() {
-    _title = [
-      'Home Screen',
-
-      'Search Screen',
-
-      'User Screen'
-    ];
+    _title = ['Home Screen', 'Search Screen', 'User Screen'];
     _pages = [
       HomeScreen(),
-
       SearchScreen(),
-      UserPage()
+      UserPage(),
     ];
     super.initState();
   }
@@ -43,6 +40,9 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<UserProvider>(context);
+    var screenHeight = MediaQuery.of(context).size.height;
+    provider.kSetScreenHeight(screenHeight);
     return Scaffold(
       // appBar: AppBar(
       //   centerTitle: true,
@@ -50,7 +50,6 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       // ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
-
         child: Container(
           height: kBottomNavigationBarHeight,
           decoration:
@@ -58,25 +57,23 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           child: BottomNavigationBar(
             onTap: _selectedPage,
             elevation: 5,
-
             backgroundColor: Colors.white,
-
             selectedItemColor: Colors.purple,
             currentIndex: _selectedIndex,
-            selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
-            unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold,color: Colors.purple),
+            selectedLabelStyle:
+                TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+            unselectedLabelStyle:
+                TextStyle(fontWeight: FontWeight.bold, color: Colors.purple),
             items: [
               BottomNavigationBarItem(
                   icon: Icon(FontAwesome5.home),
                   tooltip: 'Home',
                   label: 'Home'),
-
               BottomNavigationBarItem(
                   activeIcon: null,
                   icon: Icon(FontAwesome5.search),
                   tooltip: 'Search',
                   label: 'Search'),
-
               BottomNavigationBarItem(
                   icon: Icon(FontAwesome5.user),
                   tooltip: 'User',
@@ -85,8 +82,6 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           ),
         ),
       ),
-
-
     );
   }
 }

@@ -4,6 +4,8 @@ import 'package:second_opinion/Auth/log_in.dart';
 import 'package:second_opinion/Auth/user_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../Auth/forget_password.dart';
+
 class UserPage extends StatefulWidget {
   @override
   _UserPageState createState() => _UserPageState();
@@ -130,7 +132,7 @@ class _UserPageState extends State<UserPage> {
                                   fontSize: 12.0),
                             ),
                             SizedBox(height: 10.0),
-                            TextButton(
+                            ElevatedButton(
                               style: ButtonStyle(
                                   elevation: MaterialStateProperty.all(5.00),
                                   backgroundColor:
@@ -156,7 +158,7 @@ class _UserPageState extends State<UserPage> {
               },
             ),
             // Column(
-            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   mainAxisAlignment: MainAxisAlig  LogIn LogIn:file:///C:/Users/goswa/Desktop/pro/project_app/second_opinion/lib/screens/User_screen.dart:152:44nment.start,
             //   children: [
             //     ListTile(
             //       title: Text(
